@@ -5,11 +5,23 @@ import App from './Components/App/App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; 
 import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
 
-const reducerInitialState = 0;
+const reducerInitialState = [];
 // set up reducer before you can create a store
 const myReducer = ( state=reducerInitialState, action )=>{
   console.log( 'myReducer:', state, action );
+  if( action.type === 'setName' ){
+    state = [ ...state, action.payload ];
+  }
+  if( action.type === 'getShips' ){
+    axios.get( 'https://swapi.dev/api/starships' ).then( (response)=>{
+        console.log( 'back from starshps GET:', response.data );
+    } ).catch( ( err )=>{
+      alert( 'nope' );
+      console.log( 'err');
+    })
+  }
   return state;
 }
 // create store with reducer, to be provided to app

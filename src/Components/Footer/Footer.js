@@ -5,6 +5,7 @@ class Footer extends Component{
     return (
       <div>
         <h1>Footer.js</h1>
+        <p>{ JSON.stringify( this.props.reduxState ) }</p>
       </div>
     ); // end return
   } // end render

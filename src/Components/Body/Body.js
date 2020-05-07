@@ -40,6 +40,15 @@ class Body extends Component{
     ) // end dispatch
   } // end handle click
 
+  handleShipsClick = () =>{
+    console.log( 'in handleShipsClick' );
+    this.props.dispatch( 
+      { 
+        type: 'getShips'
+      } // end object being dispatched
+    ) // end dispatch
+  } // end handle click
+
   render() {
     return (
       <div>
@@ -47,6 +56,7 @@ class Body extends Component{
         <MuiThemeProvider theme={ myTheme }>
           <TextField placeholder="name" onChange={ this.handleChange }></TextField>
           <Button color="primary" variant="outlined" onClick={ this.handleClick }>Save Name</Button>
+          <Button color="primary" variant="outlined" onClick={ this.handleShipsClick }>Get Ships</Button>
         </MuiThemeProvider>
       </div>
     ); // end return
