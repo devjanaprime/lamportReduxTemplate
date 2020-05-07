@@ -16,11 +16,9 @@ const myReducer = ( state=reducerInitialState, action )=>{
 const myStore = createStore( myReducer );
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={ myStore }>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={ myStore }>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 

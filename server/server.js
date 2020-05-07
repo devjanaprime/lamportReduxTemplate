@@ -9,5 +9,5 @@ app.listen( port, ()=>{
 
 app.get( '/test', ( req, res )=>{
     console.log( '/test GET hit' );
-    res.send( 'whinney' );
+    res.send( 'buzzz' );
 }) // end GET
