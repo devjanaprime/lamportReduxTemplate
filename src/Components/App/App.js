@@ -3,8 +3,13 @@ import './App.css';
 import Body from '../Body/Body';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { connect } from 'react-redux';
 
 class App extends React.Component{
+  componentDidMount(){
+    console.log( this.props );
+  }
+
   render() {
     return (
       <div className="App">
@@ -16,4 +21,6 @@ class App extends React.Component{
   } // end render
 } // end class
 
-export default App;
+const reduxStateToProps = ( reduxState ) =>( { reduxState } );
+
+export default connect( reduxStateToProps )(App);

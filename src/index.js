@@ -2,11 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Components/App/App';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'; 
 import * as serviceWorker from './serviceWorker';
+
+const reducerInitialState = 0;
+// set up reducer before you can create a store
+const myReducer = ( state=reducerInitialState, action )=>{
+  console.log( 'myReducer:', state, action );
+  return state;
+}
+// create store with reducer, to be provided to app
+const myStore = createStore( myReducer );
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={ myStore }>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
